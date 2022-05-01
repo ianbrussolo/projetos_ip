@@ -1,0 +1,131 @@
+import java.util.Scanner;
+ 
+public class Sudoku {
+    
+    //metodo para printar matriz
+    static void imprime(int[][] matriz) {
+        for (int i = 0; i < 9; i++) {
+            for (int j = 0; j < 9; j++) {
+                System.out.print(matriz[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+    //verificacoes para validar a jogada
+    static boolean jogadaValida(int[][]matriz, int l, int c, int n){
+        //posição já estava preenchida? return false se sim
+        if (){}
+        //verificar linha para ver se tem numeros repetidos
+        if (){}
+        //verificar coluna 
+        if (){}
+        //verificar submatriz (bloco de 9)
+        if (){}
+    }
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        System.out.println("Insira o número de elementos pré-definidos:");
+        int qtdinicial = in.nextInt();
+        int[][] matriz = new int[9][9];
+    //preenchimento previo
+    System.out.println("Insira os elementos pré-definidos:");
+    for (int i = 0; i < qtdinicial; i++) {
+        int l = in.nextInt();
+        int c = in.nextInt();
+        int n = in.nextInt();
+        matriz[l][c] = n;
+    }
+    imprime(matriz);
+    //o jogo começa aqui
+    System.out.println("Agora continue seu jogo:");
+    while (true) {
+        int l = in.nextInt();
+        int c = in.nextInt();
+        int n = in.nextInt();
+        //fim do jogo?
+        if(l == -1){
+            System.out.println("Tchau!");
+            break;
+        }
+
+        if(jogadaValida(matriz, l, c, n)){
+            matriz[l][c] = n;
+            n++;
+            //preencheu tudo?
+            if(n==81){
+                System.out.println("Parabéns!");
+                break;
+            }
+        } else {
+            System.out.println("Jogada inválida!");
+
+        }
+        imprime(matriz);
+    }
+    }
+}import java.util.Scanner;
+ 
+public class Sudoku {
+    
+    //metodo para printar matriz
+    static void imprime(int[][] matriz) {
+        for (int i = 0; i < 9; i++) {
+            for (int j = 0; j < 9; j++) {
+                System.out.print(matriz[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+    //verificacoes para validar a jogada
+    static boolean jogadaValida(int[][]matriz, int l, int c, int n){
+        //posição já estava preenchida? return false se sim
+        if (){}
+        //verificar linha para ver se tem numeros repetidos
+        if (){}
+        //verificar coluna 
+        if (){}
+        //verificar submatriz (bloco de 9)
+        if (){}
+    }
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        System.out.println("Insira o número de elementos pré-definidos:");
+        int qtdinicial = in.nextInt();
+        int[][] matriz = new int[9][9];
+    //preenchimento previo
+    System.out.println("Insira os elementos pré-definidos:");
+    for (int i = 0; i < qtdinicial; i++) {
+        int l = in.nextInt();
+        int c = in.nextInt();
+        int n = in.nextInt();
+        matriz[l][c] = n;
+    }
+    imprime(matriz);
+    //o jogo começa aqui
+    System.out.println("Agora continue seu jogo:");
+    while (true) {
+        int l = in.nextInt();
+        int c = in.nextInt();
+        int n = in.nextInt();
+        //fim do jogo?
+        if(l == -1){
+            System.out.println("Tchau!");
+            break;
+        }
+
+        if(jogadaValida(matriz, l, c, n)){
+            matriz[l][c] = n;
+            n++;
+            //preencheu tudo?
+            if(n==81){
+                System.out.println("Parabéns!");
+                break;
+            }
+        } else {
+            System.out.println("Jogada inválida!");
+
+        }
+        imprime(matriz);
+    }
+    }
+}
