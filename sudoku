@@ -9,7 +9,7 @@ public class Sudoku {
             }
             System.out.println();
         }
-    }cxzbvxvd
+    }
     //posição já estava preenchida? return false se sim
     static boolean verificarPosicao(int[][]matriz, int l, int c, int n){
         for (int i = l; i < linhaBloco + 3; i++) {
