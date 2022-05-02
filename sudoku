@@ -1,24 +1,36 @@
+/*1) Leia da entrada padrão (Scanner/System.in) um inteiro positivo N e em seguida n triplas de inteiros i, j, k; 
+tais que 1 <= i,j,k <= 9. Preencha uma matriz M 9x9 com as triplas lidas, de forme que, para cada triplo i j k, coordenada 
+(i,j) de M seja igual a k. As demais coordenadas de M devem ser iguais a zero.
+  2 )Considere a matriz M preenchida no exercicio 1. Escreva uma função que receba M e uma tripla i j k (entre 1 e 9) 
+e devolva "false" se uma das seguintes condições for satisfeita (caso contrario, devolva true): 
+  a) a coordenada (i,j) de M contém um valor != 0. 
+  b)a linha i já contém o valor k.
+  3) Mesma coisa do exercicio 2, porém troque a condição b por: c) a coluna j já contém o valor k.
+  4) Mesma coisa do exercicio 2, porém troque a condição 2 por: 4) a sub matriz 3x3 (A, B, ... I) em que (i,j) está contido já contém o valor k.
+  5) Faça uma função que devolva a matriz M 9x9.
+  */
 import java.util.Scanner;
- 
-public class Sudoku {
-    //metodo para printar matriz
-    static void imprime(int[][] matriz) {
-        for (int i = 0; i < 9; i++) {
-            for (int j = 0; j < 9; j++) {
-                System.out.print(matriz[i][j] + " ");
-            }
-            System.out.println();
-        }
-    }
+	 
+public class sudokuu {
+	//metodo para printar matriz
+	static void imprime(int[][] matriz) {
+		for (int i = 0; i < 9; i++) {
+			for (int j = 0; j < 9; j++) {
+				System.out.print(matriz[i][j] + " ");
+			}
+			System.out.println();
+		}
+	}
     //posição já estava preenchida? return false se sim
     static boolean verificarPosicao(int[][]matriz, int l, int c, int n){
-        for (int i = l; i < linhaBloco + 3; i++) {
-            for (int j = colunaBloco; j < colunaBloco + 3; j++) {
+    	for (int i = 0; i < l; i++) {
+            for (int j = 0; j < c; j++) {
                 if (matriz[i][j] != 0){
-                    return false;
+                    return true;
                 }
             }
         }
+    	return false;
     }
     //verificar linha para ver se tem numeros repetidos
     static boolean verificarLinha(int[][]matriz, int l, int n){
@@ -64,40 +76,45 @@ public class Sudoku {
         System.out.println("Insira o número de elementos pré-definidos:");
         int qtdinicial = in.nextInt();
         int[][] matriz = new int[9][9];
-    //preenchimento previo
-    System.out.println("Insira os elementos pré-definidos:");
-    for (int i = 0; i < qtdinicial; i++) {
-        int l = in.nextInt();
-        int c = in.nextInt();
-        int n = in.nextInt();
-        matriz[l][c] = n;
-    }
-    imprime(matriz);
-    //o jogo começa aqui
-    System.out.println("Agora continue seu jogo:");
-    while (true) {
-        int l = in.nextInt();
-        int c = in.nextInt();
-        int n = in.nextInt();
-        //fim do jogo?
-        if(l == -1){
-            System.out.println("Tchau!");
-            break;
-        }
-
-        if(jogadaValida(matriz, l, c, n)){
-            matriz[l][c] = n;
-            n++;
-            //preencheu tudo?
-            if(n==81){
-                System.out.println("Parabéns!");
-                break;
-            }
-        } else {
-            System.out.println("Jogada inválida!");
-
+        //preenchimento previo
+        System.out.println("Insira os elementos pré-definidos:");
+        for (int i = 0; i < qtdinicial; i++) {
+        	int l = in.nextInt();
+        	int c = in.nextInt();
+        	int n = in.nextInt();
+        	matriz[l][c] = n;
         }
         imprime(matriz);
+        
+        //o jogo começa aqui
+        System.out.println("Agora continue seu jogo:");
+        int jogada = 0;
+        while (true) {
+        	int l = in.nextInt();
+        	if(l == -1){
+        		System.out.println("Tchau!");
+        		break;
+        	}
+        	int c = in.nextInt();
+        	int n = in.nextInt();
+        	matriz[l][c] = n;
+        	//fim do jogo?
+
+        	
+
+        	if(verificarJogada(matriz, l, c, n)){
+        		matriz[l][c] = n;
+        		jogada++;
+        		//preencheu tudo?
+        		if(jogada==81){
+        			System.out.println("Parabéns!");
+        			break;
+        		}
+        	} else {
+        		System.out.println("Jogada inválida!");
+        	}
+        	imprime(matriz); 
     }
     }
-}
+}	
+
